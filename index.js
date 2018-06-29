@@ -3,10 +3,11 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const app = express();
+const config = require("./config/dev");
 const cors = require("cors");
 require("./models/User");
 
-mongoose.connect("mongodb://abhi:hluopb68@ds219051.mlab.com:19051/billy");
+mongoose.connect(config.mongoURI);
 
 app.use(morgan("combined"));
 app.use(bodyParser.json());
